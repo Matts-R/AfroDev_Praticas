@@ -1,0 +1,69 @@
+
+                        Questions {
+
+1_ Is the following code legal?
+try {
+    
+} finally {
+    
+}
+
+Sim, é possível usar o finally sem possuir um catch.
+
+2_ What exception types can be caught by the following handler?
+catch (Exception e) {
+     
+}
+What is wrong with using this type of exception handler?
+
+Serão capturadas todas as exceções que herdam de Exception, ou seja todas as checked exception.
+
+3_ Is there anything wrong with the following exception handler as written? Will this code compile?
+try {
+
+} catch (Exception e) {
+    
+} catch (ArithmeticException a) {
+    
+}
+
+O código não irá compilar, e é uma má prática usar a classe Exception como primeira opção do catch, pois ela é muito genérica, por isso qualquer exceção cairá nela e nunca em ArithmeticException.
+
+4_ Match each situation in the first list with an item in the second list.
+int[] A;
+A[0] = 0;
+
+The JVM starts running your program, but the JVM can't find the Java platform classes. (The Java platform classes reside in classes.zip or rt.jar.)
+
+A program is reading a stream and reaches the end of stream marker.
+
+Before closing the stream and after reaching the end of stream marker, a program tries to read the stream again.
+
+__error -> The JVM starts running your program, but the JVM can't find the Java platform classes. (The Java platform classes reside in classes.zip or rt.jar.)
+
+__checked exception -> Before closing the stream and after reaching the end of stream marker, a program tries to read the stream again.
+
+__compile error ->int[] A; A[0] = 0;
+
+__no exception -> A program is reading a stream and reaches the end of stream marker.
+                        }
+
+                    Exercises {
+
+public static void cat(File file) {
+    RandomAccessFile input = null;
+    String line = null;
+
+    try {
+        input = new RandomAccessFile(file, "r");
+        while ((line = input.readLine()) != null) {
+            System.out.println(line);
+        } catch(FileNotFoundException e){
+          //Tratação do código 
+        }
+    } finally {
+        if (input != null) {
+            input.close();
+        }
+    }
+}
