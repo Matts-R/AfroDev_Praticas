@@ -35,7 +35,7 @@ public abstract class CopyingFiles {
 
         fileName = returnNewName(fileName);
         path[path.length - 1] = fileName;
-
+        
         this.fullPath = Arrays.toString(path)
                 .replace(", ", "/")
                 .replace("[", "")
