@@ -8,13 +8,13 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 public class SafeLockDemo {
     
-    private static AtomicInteger count = new AtomicInteger();
+    public static int count = 0;
     
-    public static Integer incremento(){
-        return count.incrementAndGet();
+    public static int incremento(){
+        return ++count;
     }
     
-    public static Integer get(){
-        return count.get();
+    public static int get(){
+        return count;
     }
 }
