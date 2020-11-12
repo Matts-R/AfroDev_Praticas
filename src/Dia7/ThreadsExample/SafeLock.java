@@ -18,7 +18,8 @@ public class SafeLock implements Runnable {
     @Override
     public void run() {
         do {
-            System.out.println(Thread.currentThread().getName() + " count: " + SafeLockDemo.incremento());
+            SafeLockDemo.incremento();
+            System.out.println(Thread.currentThread().getName() + " count: " + SafeLockDemo.get());
         } while (SafeLockDemo.get() < 11);
     }
 
